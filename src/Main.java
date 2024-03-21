@@ -35,41 +35,37 @@ public class Main {
             }
         }
         int PersonArray[][] = new int[5][5];
-       /* System.out.println("Welcome to the BINGO Game");
+        System.out.println("Welcome to the BINGO Game");
         System.out.println("Enter Numbers from 1 to 25");
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 System.out.print("Enter " + "[" + (i + 1) + "]" + "[" + (j + 1) + "]:");
                 PersonArray[i][j] = s.nextInt();
             }
-        }*/
+        }
         PrintArray(ComputerArray, "Computer");
         PrintArray(PersonArray, "Your");
 
-       // int f;
-        //System.out.println("Select who is going to start");
-        //System.out.println("Computer for 1 and You for 0");
-        //f = s.nextInt();
-        //if (f == 1) {
-            computer(ComputerArray, PersonArray);
-        //}
+         int f;
+        System.out.println("Select who is going to start");
+        System.out.println("Computer for 1 and You for 0");
+        f = s.nextInt();
+        if (f == 1) {
+        computer(ComputerArray, PersonArray);
+        }
     }
 
     public static void computer(int ComputerArray[][], int PersonArray[][]) {
 
         //int Pnumb=PersonNumber();
-        int summa=0;
-        while(summa!=8){
+        int summa = 0;
+        while(summa!=25){
             int Cnumb=ComputerNumber();
-            System.out.println(Cnumb);
-            for(int i=0;i<5;i++){
-                for(int j=0;j<5;j++){
-                    if(Cnumb==ComputerArray[i][j]){
-                        ComputerArray[i][j]=0;
-                    }
-                }
-            }PrintArray(ComputerArray,"Computer");
-
+            ConvertArray(Cnumb,ComputerArray);
+            ConvertArray(Cnumb,PersonArray);
+            System.out.println("COMPUTER TOLD:"+Cnumb);
+            PrintArray(ComputerArray,"COMPUTER");
+            PrintArray(PersonArray,"Your");
             summa++;
         }
     }
@@ -85,4 +81,17 @@ public class Main {
         NUMB=s.nextInt();
         return NUMB;
     }
+    public static void ConvertArray(int a, int[][] arr){
+        for(int i=0;i<5;i++){
+            for(int j=0;j<5;j++){
+                if(a==arr[i][j]){
+                    arr[i][j]=0;
+                }
+            }
+        }
+    }
+
+
+
+
 }
